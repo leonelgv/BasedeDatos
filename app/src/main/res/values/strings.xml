@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Base de Datos</string>
+    <string name="action_settings">Settings</string>
+    <string name="id_usuario">ID del Usuario:</string>
+    <string name="user">Usuario:</string>
+    <string name="password">Password:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellidop">Apellido Paterno:</string>
+    <string name="apellidom">Apellido Materno:</string>
+    <string name="email">E-Mail:</string>
+
+    <string name="alta">Alta</string>
+    <string name="baja">Baja</string>
+    <string name="consulta">Consultar</string>
+    <string name="modificar">Modificar</string>
+    <string name="limpiar">Limpiar</string>
+
+</resources>
