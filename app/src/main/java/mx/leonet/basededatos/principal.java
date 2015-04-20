@@ -42,28 +42,31 @@ public class principal extends ActionBarActivity {
         String apellidop = et_apellidop.getText().toString();
         String apellidom = et_apellidom.getText().toString();
         String email = et_email.getText().toString();
-        ContentValues registro = new ContentValues();
-        registro.put("id_usuario", idusuario);
-        registro.put("user", user);
-        registro.put("password", password);
-        registro.put("nombre", nombre);
-        registro.put("apellido_p", apellidop);
-        registro.put("apellido_m", apellidom);
-        registro.put("email", email);
 
-        bd.insert("usuarios", null, registro);
-        bd.close();
-
-        et_idusuario.setText("");
-        et_user.setText("");
-        et_password.setText("");
-        et_nombre.setText("");
-        et_apellidop.setText("");
-        et_apellidom.setText("");
-        et_email.setText("");
-
-        Toast.makeText(this,"Se agrego un nuevo usuario",Toast.LENGTH_SHORT).show();
-
+        Cursor fila = bd.rawQuery("select user, password, nombre, apellido_p, apellido_m, email from usuarios where id_usuario=" + idusuario, null);
+        if (fila.getCount() >= 1) {
+            Toast.makeText(this,"No se puede agregar. Existe el ID",Toast.LENGTH_SHORT).show();
+        } else
+        {
+            ContentValues registro = new ContentValues();
+            registro.put("id_usuario", idusuario);
+            registro.put("user", user);
+            registro.put("password", password);
+            registro.put("nombre", nombre);
+            registro.put("apellido_p", apellidop);
+            registro.put("apellido_m", apellidom);
+            registro.put("email", email);
+            bd.insert("usuarios", null, registro);
+            bd.close();
+            et_idusuario.setText("");
+            et_user.setText("");
+            et_password.setText("");
+            et_nombre.setText("");
+            et_apellidop.setText("");
+            et_apellidom.setText("");
+            et_email.setText("");
+            Toast.makeText(this,"Se agrego un nuevo usuario",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void consulta(View v) {
