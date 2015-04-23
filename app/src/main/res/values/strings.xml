@@ -14,5 +14,8 @@
     <string name="consulta">Consultar</string>
     <string name="modificar">Modificar</string>
     <string name="limpiar">Limpiar</string>
+    <string name="title_activity_registros">registros</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
